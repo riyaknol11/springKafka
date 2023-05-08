@@ -1,0 +1,23 @@
+1.For consumer --> Deserialization
+
+spring.kafka.consumer.key-deserializer and spring.kafka.consumer.value-deserializer are two configuration
+properties in the Spring for Apache Kafka (Spring Kafka) library that specify the deserializers for the keys
+ and values of messages consumed by a Kafka consumer.
+
+When a Kafka producer sends a message to a topic, it typically consists of a key-value pair,
+ where the key and value are both byte arrays. The producer can choose to serialize the key-value
+  pairs using any serialization format, such as JSON or Avro.
+
+When a Kafka consumer receives a message from a topic, it needs to deserialize the key-value pair
+ back into their original data types. The deserialization is done using deserializer classes that are
+ responsible for converting the byte arrays into the original data types.
+
+
+ 2. For producer --> Serialization
+ spring.kafka.producer.key-serializer and spring.kafka.producer.value-serializer are two
+  configuration properties in the Spring for Apache Kafka (Spring Kafka) library that specify
+   the serializers for the keys and values of messages produced by a Kafka producer.
+
+ When a Kafka producer sends a message to a topic, it typically consists of a key-value pair,
+  where the key and value can be any data type. Before the producer sends the message, it needs
+   to serialize the key-value pair into byte arrays that can be sent over the network.

@@ -1,0 +1,15 @@
+1.Starting the kafka environment.
+2. Creating a topic in a kafka cluster using spring boot application.
+3. Writing the events to the topic -- > This is done by making a kafka producer and rest api and sending
+the message to the topic using kafkaTemplate.
+4. Read the events from the topic.
+we run the console consumer client to read the events we just created.
+$ bin/kafka-console-consumer.sh --topic hello --from-beginning --bootstrap-server localhost:9092
+
+5. Configuring the kafka producer and consumer for JSON Serializer and Deserializer.
+6. Creating simple POJO to Serialize and Deserialize -->
+We will send and receive User object to and from Apache kafka topic
+We will use Spring kafka provided JSON serializer and deserializer which we can use to convert Java Objects
+to and from JSON.
+
+7. Creating kafka producer to produce JSON Message.

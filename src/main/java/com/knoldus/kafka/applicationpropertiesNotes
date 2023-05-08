@@ -1,0 +1,43 @@
+1. spring.kafka.consumer.bootstrap-servers -->is a configuration property in the Spring for Apache
+Kafka (Spring Kafka) library that specifies the address of the Kafka brokers that the Kafka consumer
+should connect to.
+
+
+2.spring.kafka.consumer.group-id is a required property that specifies the consumer group that the Kafka
+consumer belongs to. A consumer group is a logical grouping of Kafka consumers that jointly consume a single topic.
+
+spring.kafka.consumer.auto-offset-reset is a configuration property that specifies
+what happens when a Kafka consumer starts consuming a topic for the first time or when i
+t has no valid offset information for a partition. In such cases, the consumer needs to know
+where to begin consuming from.
+
+In the example, earliest is the value assigned to the spring.kafka.consumer.auto-offset-reset property.
+ This means that the Kafka consumer will start consuming messages from the earliest available offset
+ for the partitions it is assigned to. This ensures that the consumer receives all messages in the topic,
+ including those that were produced before the consumer was started.
+
+Overall, these two configuration properties are important for configuring the behavior of
+Kafka consumers in a Spring Boot application.
+
+
+3. spring.kafka.consumer.key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+spring.kafka.consumer.value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+It is assigned to both spring.kafka.consumer.key-deserializer and spring.kafka.consumer.value-deserializer.
+This means that the deserializers used by the Kafka consumer expect the key and value to be encoded as strings.
+When the consumer receives a message, it will deserialize the key and value byte arrays into Java strings.
+
+
+4.spring.kafka.producer.key-serializer: org.apache.kafka.common.serialization.StringSerializer
+  spring.kafka.producer.value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+org.apache.kafka.common.serialization.StringSerializer is assigned to both spring.kafka.producer.key-serializer
+ and spring.kafka.producer.value-serializer. This means that the serializers used by the Kafka
+  producer expect the key and value to be strings. When the producer sends a message,
+   it will serialize the key and value strings into byte arrays.
+
+
+Kafka consumers use the concept of offsets to keep track of their progress in consuming messages
+from a topic. The offset is stored by the consumer and used to resume reading from where it left off
+after a restart or failure. This ensures that the consumer does not miss any messages while it was
+offline and provides fault tolerance.
