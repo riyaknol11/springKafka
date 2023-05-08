@@ -33,7 +33,7 @@ public class JsonKafkaProducer {
 
         Message<User> message = MessageBuilder
                 .withPayload(data)
-                .setHeader(KafkaHeaders.TOPIC, "hello")
+                .setHeader(KafkaHeaders.TOPIC, "json_topic")
                 .build();
 
         //the Message class is a part of the Spring messaging module and is used to create
